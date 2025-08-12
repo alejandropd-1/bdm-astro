@@ -15,92 +15,294 @@ export async function getStaticPaths() {
 
 const { service } = Astro.props;
 const { Content } = await service.render();
+
+// Set active navigation for each service
+const getNavClass = (serviceName: string) => {
+  return service.slug === serviceName ? 'uk-active' : '';
+};
 ---
 
-<Layout 
+<Layout
   title={service.data.title + " - BDM Consultores"}
   description={service.data.description}
 >
   <main>
     <!-- TOP -->
-    <div class="top-wrap uk-position-relative uk-light uk-background-secondary background-banner">
+    <div class="uk-position-relative uk-dark background-banner">
       <!-- NAV -->
-      <Header />
+      <Header currentPage={service.slug} />
       <!-- /NAV -->
 
-      <div class="uk-cover-container uk-light uk-flex uk-flex-middle" style="min-height: 400px;">
-        <div class="uk-container uk-flex-auto uk-position-relative uk-margin-medium-top">
-          <div class="uk-width-1-1 uk-text-center">
-            <h1 class="hero-title">{service.data.title}</h1>
-            <p class="subtitle-text uk-margin-top">{service.data.description}</p>
+      <div class="uk-container uk-cover-container uk-dark uk-flex uk-flex-middle uk-section-large">
+        <!-- TOP CONTAINER -->
+        <div class="uk-grid top-container uk-child-width-1-3@m uk-margin-medium-top uk-grid-match uk-dark"
+          data-uk-parallax="y: 0,50; easing:0; opacity:0.2">
+          <div class="uk-width-1-1@s uk-margin"
+            data-uk-scrollspy="cls: uk-animation-slide-left-medium; target: > *; delay: 150">
+            <h1 class="text-center uk-text-bolder">{service.data.title}</h1>
+          </div>
+          <div class="uk-width-1-1@s" data-uk-scrollspy="cls: uk-animation-slide-left-medium; target: > *; delay: 150">
+            <p class="uk-text-lead text-center">
+              {service.data.description}
+            </p>
           </div>
         </div>
-        
-        <!-- Service Image -->
-        <img
-          src={service.data.image}
-          alt={service.data.title}
-          data-uk-cover
-          style="opacity: 0.3;"
-        />
+        <!-- /TOP CONTAINER -->
       </div>
     </div>
-    <!-- /TOP -->
 
-    <!-- CONTENT -->
-    <div class="uk-section">
-      <div class="uk-container">
-        <div class="uk-grid-divider uk-child-width-expand@s" uk-grid>
-          <div class="uk-width-3-4@m">
-            <article class="uk-article">
-              <div class="flow">
-                <Content />
+    <!-- CONTENT CONTAINER -->
+    <div id="content" class="uk-container uk-section">
+      {service.slug === 'nosotros' ? (
+        <div class="profile" uk-grid>
+          <div class="uk-card" data-uk-scrollspy="cls: uk-animation-fade; target: > *; delay: 150">
+            <div class="uk-card-header">
+              <div class="uk-grid-medium uk-flex-middle" uk-grid>
+                <div class="uk-width-expand" data-uk-scrollspy="cls: uk-animation-fade; target: > *; delay: 350">
+                  <h2 class="uk-card-title-profile uk-margin-remove-bottom">Experiencia</h2>
+                </div>
               </div>
-            </article>
+            </div>
+            <div class="uk-card-body uk-column-1-2@m" data-uk-scrollspy="cls: uk-animation-slide-bottom; target: > *; delay: 350">
+              <Content />
+            </div>
           </div>
-          
-          <div class="uk-width-1-4@m">
-            <aside class="uk-margin-large-top@s">
-              <div class="uk-card uk-card-default uk-card-body">
-                <h3 class="uk-card-title">¿Necesitas ayuda?</h3>
-                <p>Contáctanos para obtener más información sobre nuestros servicios.</p>
-                <a 
-                  href="https://wa.me/541151147718?text=Hola,%20quisiera%20información%20sobre%20" + service.data.title
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="uk-button uk-button-primary uk-width-1-1 uk-margin-top"
-                >
-                  <span uk-icon="whatsapp" class="uk-margin-small-right"></span>
-                  Consultar por WhatsApp
-                </a>
-                
-                <a 
-                  href="mailto:info@bdmconsultores.com.ar?subject=Consulta sobre " + service.data.title
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-top"
-                >
-                  <span uk-icon="mail" class="uk-margin-small-right"></span>
-                  Enviar Email
-                </a>
-              </div>
 
-              <div class="uk-card uk-card-primary uk-card-body uk-margin-top">
-                <h4 class="uk-card-title uk-light">Otros Servicios</h4>
-                <ul class="uk-nav uk-nav-default">
-                  <li><a href="/services/nosotros">Nosotros</a></li>
-                  <li><a href="/services/capital-humano">Capital Humano</a></li>
-                  <li><a href="/services/consultoria">Consultoría</a></li>
-                  <li><a href="/services/compensaciones">Compensaciones</a></li>
-                  <li><a href="/services/administracion-personal">Administración de Personal</a></li>
-                </ul>
+          <div class="uk-card" data-uk-scrollspy="cls: uk-animation-fade; target: > *; delay: 350">
+            <div class="card--background uk-card uk-card-small uk-card-default border-radius-2 card--border uk-card-body">
+              <h3 class="uk-card-title--capHum">Logros Destacados</h3>
+              <div class="profile-text">
+                <div class="uk-list uk-column-1-2@m" role="list">
+                  <div class="uk-flex uk-flex-middle">
+                    <span data-uk-icon="check"> </span><div class="uk-margin-small-left" role="listitem">Implementación de estrategias exitosas para la optimización de procesos de selección y mejora de la experiencia del candidato.</div>
+                  </div>
+                  <div class="uk-flex uk-flex-middle">
+                    <span data-uk-icon="check"> </span><div class="uk-margin-small-left" role="listitem">Gestión exitosa de procesos de cambio organizacional y transformaciones culturales.</div>
+                  </div>
+                  <div class="uk-flex uk-flex-middle">
+                    <span data-uk-icon="check"> </span><div class="uk-margin-small-left" role="listitem">Contribución al fortalecimiento del talento dentro de las organizaciones.</div>
+                  </div>
+                  <div class="uk-flex uk-flex-middle">
+                    <span data-uk-icon="check"> </span><div class="uk-margin-small-left" role="listitem">Diseño e implementación de soluciones a medida que generan valor tangible a corto y largo plazo.</div>
+                  </div>
+                  <div class="uk-flex uk-flex-middle">
+                    <span data-uk-icon="check"> </span><div class="uk-margin-small-left" role="listitem">Reorganización de procesos de liquidación de haberes y gestión de tiempos.</div>
+                  </div>
+                  <div class="uk-flex uk-flex-middle">
+                    <span data-uk-icon="check"> </span><div class="uk-margin-small-left" role="listitem">Confección de planes de capacitación, coaching, desarrollo de líderes y jóvenes profesionales.</div>
+                  </div>
+                  <div class="uk-flex uk-flex-middle">
+                    <span data-uk-icon="check"> </span><div class="uk-margin-small-left" role="listitem">Armado de tableros de control de Recursos Humanos para diversos clientes.</div>
+                  </div>
+                </div>
               </div>
-            </aside>
+            </div>
           </div>
         </div>
-      </div>
+      ) : service.slug === 'capital-humano' ? (
+        <div class="uk-grid-width-expand" uk-grid>
+          <div class="uk-width-1-1@s uk-width-1-2@m" data-uk-scrollspy="cls: uk-animation-fade; target: > *; delay: 150">
+            <div class="card--background uk-card uk-card-small uk-card-default border-radius-2 card--border uk-card-body">
+              <h3 class="uk-card-title--capHum">Búsqueda y Selección de Personal</h3>
+              <p class="profile-text">Somos especialistas en búsquedas de profesionales para todas las áreas funcionales de una organización. Actuamos como socios estratégicos de nuestros clientes en el proceso de búsqueda para la definición de perfiles y las estrategias de reclutamiento. Trabajamos junto con el cliente para definir claramente el perfil del puesto, incluyendo habilidades técnicas, competencias blandas, experiencia previa y cultura organizacional, asegurando que todos los involucrados tengan una comprensión clara de lo que se busca.</p>
+            </div>
+          </div>
+
+          <div class="uk-width-1-1@s uk-width-1-2@m" data-uk-scrollspy="cls: uk-animation-fade; target: > *; delay: 350">
+            <div class="card--background uk-card uk-card-small uk-card-default border-radius-2 card--border uk-card-body">
+              <h3 class="uk-card-title--capHum">Exámenes pre ingreso <br> <span class="uk-text-default">(preocupacionales, ambientales, psicotécnicos)</span></h3>
+              <p class="profile-text">Contamos con un Equipo de Psicólogos que a través de la administración de diversas técnicas de evaluación individual pueden indagar en profundidad los lineamientos estructurales de la personalidad y las aptitudes de los candidatos. Ofrecemos a nuestros clientes la adecuación de un candidato respecto al puesto a cubrir.
+                Asimismo realizamos informes detallados que complementen las entrevistas y ayuden en la toma de decisiones.</p>
+            </div>
+          </div>
+
+          <div class="uk-width-1-1@s uk-width-1-2@m" data-uk-scrollspy="cls: uk-animation-fade; target: > *; delay: 550">
+            <div class="uk-card uk-card-small uk-card-default border-radius-2 card--border uk-card-body">
+              <h3 class="uk-card-title--capHum">Background Laboral</h3>
+              <p class="profile-text">Evaluamos minuciosamente el perfil del candidato, analizando su currículum, respuestas en la entrevista, documentación necesaria para el puesto, datos de acceso público, referencias laborales, antecedentes, y medidas disciplinarias. Este análisis exhaustivo tiene como objetivo identificar patrones de comportamiento y posibles señales de alerta que puedan no estar en sintonía con las políticas y cultura de la organización, evaluando así riesgos potenciales que podrían afectar la integridad de la empresa. Nos enfocamos en detectar conflictos de interés, riesgos para la reputación y la marca empleadora, posibles conflictos laborales y cualquier incumplimiento de normas de compliance.</p>
+            </div>
+          </div>
+
+          <div class="uk-width-1-1@s uk-width-1-2@m" data-uk-scrollspy="cls: uk-animation-fade; target: > *; delay: 750">
+            <div class="uk-card uk-card-small uk-card-default border-radius-2 card--border uk-card-body">
+              <h3 class="uk-card-title--capHum">Capacitaciones</h3>
+              <p class="profile-text">Ofrecemos un servicio integral de capacitaciones diseñadas específicamente para satisfacer las necesidades de la organización. Contamos con Módulos de capacitaciones pre diseñadas y a medida. Nos adaptamos a las particularidades de la empresa y a los objetivos que deseas alcanzar. Ya sea en habilidades técnicas, liderazgo, trabajo en equipo o atención al cliente, diseñamos tu plan de capacitación a medida.</p>
+            </div>
+          </div>
+        </div>
+      ) : service.slug === 'consultoria' ? (
+        <div class="uk-grid-width-expand" uk-grid>
+          <div class="uk-width-1-1@s uk-width-1-2@m" data-uk-scrollspy="cls: uk-animation-fade; target: > *; delay: 150">
+            <div class="card--background uk-card uk-card-small uk-card-default border-radius-2 card--border uk-card-body">
+              <h3 class="uk-card-title--capHum">Ingeniería Organizacional</h3>
+              <p class="profile-text">
+                <div class="uk-list" role="list">
+                  <div class="uk-flex uk-flex-middle">
+                    <span data-uk-icon="check"> </span><div class="uk-margin-small-left" role="listitem">Evaluación de desempeño</div>
+                  </div>
+                  <div class="uk-flex uk-flex-middle">
+                    <span data-uk-icon="check"> </span><div class="uk-margin-small-left" role="listitem">Encuestas de clima</div>
+                  </div>
+                  <div class="uk-flex uk-flex-middle">
+                    <span data-uk-icon="check"> </span><div class="uk-margin-small-left" role="listitem">Encuestas de liderazgo</div>
+                  </div>
+                  <div class="uk-flex uk-flex-middle">
+                    <span data-uk-icon="check"> </span><div class="uk-margin-small-left" role="listitem">Encuestas de satisfacción al cliente interno</div>
+                  </div>
+                  <div class="uk-flex uk-flex-middle">
+                    <span data-uk-icon="check"> </span><div class="uk-margin-small-left" role="listitem">Evaluación de potencial</div>
+                  </div>
+                  <div class="uk-flex uk-flex-middle">
+                    <span data-uk-icon="check"> </span><div class="uk-margin-small-left" role="listitem">Desarrollo organizacional</div>
+                  </div>
+                  <div class="uk-flex uk-flex-middle">
+                    <span data-uk-icon="check"> </span><div class="uk-margin-small-left" role="listitem">Evaluación de puestos</div>
+                  </div>
+                  <div class="uk-flex uk-flex-middle">
+                    <span data-uk-icon="check"> </span><div class="uk-margin-small-left" role="listitem">Elaboración y análisis de perfil de puesto</div>
+                  </div>
+                </div>
+              </p>
+            </div>
+
+            <div class="uk-width-1-1@s uk-margin-medium-top" data-uk-scrollspy="cls: uk-animation-fade; target: > *; delay: 350">
+              <div class="uk-card uk-card-small uk-card-default border-radius-2 card--border uk-card-body">
+                <h3 class="uk-card-title--capHum">Diseño de políticas y procedimientos</h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="uk-width-1-1@s uk-width-1-2@m" data-uk-scrollspy="cls: uk-animation-fade; target: > *; delay: 550">
+            <div class="card--background uk-card uk-card-small uk-card-default border-radius-2 card--border uk-card-body">
+              <h3 class="uk-card-title--capHum">Asesoramiento legal/laboral</h3>
+              <p class="profile-text">
+                <div class="uk-list" role="list">
+                  <div class="uk-flex uk-flex-middle">
+                    <span data-uk-icon="check"> </span><div class="uk-margin-small-left" role="listitem">Interpretación de convenios colectivos de trabajo y legislación laboral</div>
+                  </div>
+                </div>
+              </p>
+            </div>
+
+            <div class="uk-width-1-1@s uk-margin-medium-top" data-uk-scrollspy="cls: uk-animation-fade; target: > *; delay: 750">
+              <div class="uk-card uk-card-small uk-card-default border-radius-2 card--border uk-card-body">
+                <h3 class="uk-card-title--capHum">Asesoramiento en Comunicaciones internas</h3>
+              </div>
+            </div>
+
+            <div class="uk-width-1-1@s uk-margin-medium-top" data-uk-scrollspy="cls: uk-animation-fade; target: > *; delay: 750">
+              <div class="uk-card uk-card-small uk-card-default border-radius-2 card--border uk-card-body">
+                <h3 class="uk-card-title--capHum">Asesoramiento de Recursos Humanos a Pymes y Comercio</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : service.slug === 'compensaciones' ? (
+        <div class="uk-grid-width-expand" uk-grid>
+          <div class="uk-width-1-1@s uk-width-1-2@m" data-uk-scrollspy="cls: uk-animation-fade; target: > *; delay: 150">
+            <div class="card--background uk-card uk-card-small uk-card-default border-radius-2 card--border uk-card-body">
+              <h3 class="uk-card-title--capHum">Liquidación de sueldos y jornales</h3>
+              <p class="profile-text">
+                <div class="uk-list" role="list">
+                  <div class="uk-flex uk-flex-middle">
+                    <span data-uk-icon="check"> </span><div class="uk-margin-small-left" role="listitem">Libro de sueldo</div>
+                  </div>
+                  <div class="uk-flex uk-flex-middle">
+                    <span data-uk-icon="check"> </span><div class="uk-margin-small-left" role="listitem">Recibos de haberes</div>
+                  </div>
+                  <div class="uk-flex uk-flex-middle">
+                    <span data-uk-icon="check"> </span><div class="uk-margin-small-left" role="listitem">Boletas de pagos sindicales</div>
+                  </div>
+                  <div class="uk-flex uk-flex-middle">
+                    <span data-uk-icon="check"> </span><div class="uk-margin-small-left" role="listitem">Certificaciones de servicio</div>
+                  </div>
+                </div>
+              </p>
+            </div>
+          </div>
+
+          <div class="uk-width-1-1@s uk-width-1-2@m" data-uk-scrollspy="cls: uk-animation-fade; target: > *; delay: 550">
+            <div class="card--background uk-card uk-card-small uk-card-default border-radius-2 card--border uk-card-body">
+              <h3 class="uk-card-title--capHum">Liquidación de cargas sociales e impuesto a las ganancias</h3>
+            </div>
+          </div>
+        </div>
+      ) : service.slug === 'administracion-personal' ? (
+        <div class="uk-grid-width-expand" uk-grid>
+          <div class="uk-width-1-1@s uk-width-1-3@m" data-uk-scrollspy="cls: uk-animation-fade; target: > *; delay: 150">
+            <div class="card--background uk-card uk-card-small uk-card-default border-radius-2 card--border uk-card-body">
+              <h3 class="uk-card-title--capHum">Gestión integral de Administración de personal</h3>
+              <p class="profile-text">
+                <div class="uk-list" role="list">
+                  <div class="uk-flex uk-flex-middle">
+                    <span data-uk-icon="check"> </span><div class="uk-margin-small-left" role="listitem">Altas-Bajas-Modificaciones</div>
+                  </div>
+                  <div class="uk-flex uk-flex-middle">
+                    <span data-uk-icon="check"> </span><div class="uk-margin-small-left" role="listitem">Documentación legal en legajos</div>
+                  </div>
+                </div>
+              </p>
+            </div>
+          </div>
+
+          <div class="uk-width-1-1@s uk-width-1-3@m" data-uk-scrollspy="cls: uk-animation-fade; target: > *; delay: 350">
+            <div class="card--background uk-card uk-card-small uk-card-default border-radius-2 card--border uk-card-body">
+              <h3 class="uk-card-title--capHum">Diseño e implementación de reportes de Recursos Humanos</h3>
+              <p class="profile-text">
+                <div class="uk-list" role="list">
+                  <div class="uk-flex uk-flex-middle">
+                    <span data-uk-icon="check"> </span><div class="uk-margin-small-left" role="listitem">Confección del tablero de control (KPI)</div>
+                  </div>
+                </div>
+              </p>
+            </div>
+          </div>
+
+          <div class="uk-width-1-1@s uk-width-1-3@m" data-uk-scrollspy="cls: uk-animation-fade; target: > *; delay: 550">
+            <div class="card--background uk-card uk-card-small uk-card-default border-radius-2 card--border uk-card-body">
+              <h3 class="uk-card-title--capHum">Trámites</h3>
+              <p class="profile-text">
+                <div class="uk-list" role="list">
+                  <div class="uk-flex uk-flex-middle">
+                    <span data-uk-icon="check"> </span><div class="uk-margin-small-left" role="listitem">AFIP</div>
+                  </div>
+                  <div class="uk-flex uk-flex-middle">
+                    <span data-uk-icon="check"> </span><div class="uk-margin-small-left" role="listitem">Obra social</div>
+                  </div>
+                  <div class="uk-flex uk-flex-middle">
+                    <span data-uk-icon="check"> </span><div class="uk-margin-small-left" role="listitem">ART</div>
+                  </div>
+                  <div class="uk-flex uk-flex-middle">
+                    <span data-uk-icon="check"> </span><div class="uk-margin-small-left" role="listitem">Sindicatos</div>
+                  </div>
+                </div>
+              </p>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div class="uk-article">
+          <div class="flow">
+            <Content />
+          </div>
+        </div>
+      )}
     </div>
-    <!-- /CONTENT -->
+    <!-- /CONTENT CONTAINER -->
+
+    {service.slug === 'nosotros' && (
+      <!-- COMMITMENT SECTION -->
+      <div class="uk-section uk-section-medium uk-section-muted">
+        <div class="uk-container uk-slider-container uk-text-center"
+          data-uk-scrollspy="cls: uk-animation-slide-bottom; target: > *; delay: 650">
+          <h3 class="uk-card-title-profile uk-margin-remove-bottom">Nuestro Compromiso</h3>
+          <p class="uk-text-lead">
+            Nuestro principal objetivo es acompañar a las organizaciones en su crecimiento, facilitando el desarrollo de entornos laborales más eficientes y humanos, y generando un impacto positivo y duradero tanto en las empresas como en las personas.
+          </p>
+        </div>
+      </div>
+      <!-- /COMMITMENT SECTION -->
+    )}
 
     <!-- FOOTER -->
     <Footer />

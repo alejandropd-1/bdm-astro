@@ -1,5 +1,11 @@
 ---
-// Header component con navegación principal
+import Navigation from './Navigation.astro';
+
+interface Props {
+  currentPage?: string;
+}
+
+const { currentPage } = Astro.props;
 ---
 
 <div
@@ -19,23 +25,7 @@
         </div>
       </div>
       <div class="uk-navbar-center">
-        <ul class="uk-navbar-nav uk-visible@s">
-          <li>
-            <a href="#nosotros" data-uk-scroll="duration: 500">Nosotros</a>
-          </li>
-          <li>
-            <a href="#capital-humano" data-uk-scroll="duration: 500">Capital Humano</a>
-          </li>
-          <li>
-            <a href="#consultoria" data-uk-scroll="duration: 500">Consultoría</a>
-          </li>
-          <li>
-            <a href="#compensaciones" data-uk-scroll="duration: 500">Compensaciones</a>
-          </li>
-          <li>
-            <a href="#administracion-personal" data-uk-scroll="duration: 500">Adm. de Personal</a>
-          </li>
-        </ul>
+        <Navigation currentPage={currentPage} />
       </div>
       <div class="uk-navbar-right">
         <ul class="uk-navbar-nav uk-visible@s">
@@ -58,36 +48,18 @@
                     Contáctanos por Whatsapp</a>
                 </li>
                 <li>
-                  <a
-                    href="mailto:info@bdmconsultores.com.ar"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    ><span
-                      class="uk-margin-small-right"
-                      uk-icon="icon: mail"
-                    ></span>
+                  <a href="mailto:info@bdmconsultores.com.ar" target="_blank" rel="noopener noreferrer"><span class="uk-margin-small-right"
+                      uk-icon="icon: mail"></span>
                     info@bdmconsultores.com.ar</a>
                 </li>
                 <li>
-                  <a
-                    href="https://instagram.com/bdm.consultores"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    ><span
-                      class="uk-margin-small-right"
-                      uk-icon="icon: instagram"
-                    ></span>
+                  <a href="https://instagram.com/bdm.consultores" target="_blank" rel="noopener noreferrer"><span
+                      class="uk-margin-small-right" uk-icon="icon: instagram"></span>
                     @bdm.consultores</a>
                 </li>
                 <li>
-                  <a
-                    href="https://www.linkedin.com/in/bdmconsultores"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    ><span
-                      class="uk-margin-small-right"
-                      uk-icon="icon: linkedin"
-                    ></span>
+                  <a href="https://www.linkedin.com/in/bdmconsultores" target="_blank" rel="noopener noreferrer"><span
+                      class="uk-margin-small-right" uk-icon="icon: linkedin"></span>
                     bdmconsultores</a>
                 </li>
               </ul>

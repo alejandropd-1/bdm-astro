@@ -1,0 +1,27 @@
+---
+interface Props {
+  currentPage?: string;
+}
+
+const { currentPage } = Astro.props;
+
+const navItems = [
+  { href: '/services/nosotros/', label: 'Nosotros', slug: 'nosotros' },
+  { href: '/services/capital-humano/', label: 'Capital Humano', slug: 'capital-humano' },
+  { href: '/services/consultoria/', label: 'Consultoría', slug: 'consultoria' },
+  { href: '/services/compensaciones/', label: 'Compensaciones', slug: 'compensaciones' },
+  { href: '/services/administracion-personal/', label: 'Adm. de Personal', slug: 'administracion-personal' }
+];
+
+const getNavClass = (slug: string) => {
+  return currentPage === slug ? 'uk-active' : '';
+};
+---
+
+<ul class="uk-navbar-nav uk-visible@s">
+  {navItems.map((item) => (
+    <li class={getNavClass(item.slug)}>
+      <a href={item.href} data-uk-scroll="duration: 500">{item.label}</a>
+    </li>
+  ))}
+</ul>

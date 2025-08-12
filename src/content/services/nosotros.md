@@ -1,30 +1,18 @@
 ---
 title: "Nosotros"
-description: "Somos BDM, consultora de recursos humanos compuesta por profesionales con más de 20 años de experiencia en la gestión estratégica de RR.HH."
+description: "Somos un equipo de profesionales con una sólida trayectoria en Recursos Humanos, acumulando más de 20 años de experiencia en el sector, desempeñando posiciones de liderazgo tanto en empresas multinacionales de gran envergadura como en empresas PYMES."
 image: "/images/home-nosotros.jpg"
 order: 1
 featured: true
 ---
 
-# Nosotros
-
-Somos **BDM Consultores**, una empresa especializada en recursos humanos con más de **20 años de experiencia** en el mercado. Nuestro equipo está compuesto por profesionales altamente capacitados en la gestión estratégica de recursos humanos.
-
-## Nuestra Misión
-
-Desarrollamos el talento que impulsa el éxito de las organizaciones, ofreciendo soluciones personalizadas y estratégicas que se adapten a las necesidades específicas de cada cliente.
-
-## Nuestra Visión
-
-Ser la consultora de recursos humanos de referencia, reconocida por nuestra excelencia, innovación y compromiso con el desarrollo del capital humano.
-
-## Nuestros Valores
-
-- **Profesionalismo**: Actuamos con integridad y ética en todos nuestros servicios.
-- **Innovación**: Utilizamos las mejores prácticas y tecnologías del mercado.
-- **Compromiso**: Nos involucramos genuinamente en el éxito de nuestros clientes.
-- **Calidad**: Buscamos la excelencia en cada proyecto que emprendemos.
-
-## ¿Por qué elegir BDM?
-
-Con más de dos décadas en el mercado, hemos desarrollado una comprensión profunda de los desafíos que enfrentan las empresas en la gestión de su capital humano. Nuestro enfoque personalizado nos permite ofrecer soluciones que realmente marcan la diferencia.
+<ul>
+<li><b>Liderazgo y Gestión de Equipos:</b> Hemos liderado equipos de alto rendimiento, gestionando proyectos complejos y procesos de cambio organizacional en diversos entornos.</li>
+<li><b>Gestión Estratégica de RRHH:</b> Nuestra experiencia abarca tanto procesos Hard como Soft de RRHH, permitiéndonos ofrecer un servicio integral de consultoría orientado a resultados.</li>
+<li><b>Desarrollo del Talento:</b> Hemos implementado estrategias eficaces para la selección, desarrollo y retención del talento, mejorando la experiencia del candidato y fortaleciendo el capital humano de las organizaciones.</li>
+<li><b>Transformación Cultural y Resolución de Conflictos:</b> Contamos con amplia experiencia en la gestión de transformaciones culturales y la resolución de conflictos complejos, creando entornos laborales más eficientes y humanos.</li>
+<li><b>Consultoría a Medida:</b> Diseñamos soluciones a medida que optimizan los procesos de recursos humanos, alineando la gestión del talento con los objetivos estratégicos de la organización.</li>
+<li><b>Experiencia Académica:</b> Complementamos nuestra experiencia práctica con una sólida formación académica, incluyendo la docencia Universitaria en la carrera de Relaciones Laborales y la participación en proyectos de investigación.</li>
+<li><b>Empresas de Prestigio:</b> Hemos desarrollado nuestra carrera profesional en empresas de renombre tanto Multinacionales como en empresas PYMES, adquiriendo un expertise único en diversas áreas de Recursos Humanos.</li>
+<li><b>Enfoque en Datos:</b> Combinamos la gestión estratégica de RRHH con el uso de datos para la toma de decisiones, lo que nos permite optimizar procesos y generar un impacto positivo y duradero en las organizaciones.</li>
+</ul>

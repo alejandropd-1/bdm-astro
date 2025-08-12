@@ -5,6 +5,12 @@
 
 ### 📝 Historial de Modificaciones
 
+**12 de agosto de 2025 - 13:47**
+- ✅ **Corrección crítica de iconos UIKit**: Scripts UIKit ahora cargan como inline para evitar transformación a módulos ES6
+- ✅ **Revertir sintaxis de iconos**: Vuelta a sintaxis original mixta (`data-uk-icon` y `uk-icon="icon: name"`) que funciona correctamente
+- ✅ **Corrección de enlaces footer**: Enlaces ahora apuntan a `/services/` en lugar de rutas incorrectas
+- ✅ **Verificación completa**: Iconos funcionando en build de producción, paridad visual 100% con original
+
 **12 de agosto de 2025 - 11:48**
 - ✅ **Refactorización de estructura de estilos**: Movido contenido de `src/sass/` a `src/styles/` siguiendo convenciones de Astro
 - ✅ **Simplificación de Layout**: Ahora importa directamente `main.scss` en lugar de módulos individuales
@@ -194,6 +200,43 @@ Contenido del servicio en **Markdown**.
 - Beneficios
 - Proceso de trabajo
 ```
+
+---
+
+## 🐛 Solución de Problemas Críticos
+
+### Problema: Iconos UIKit No Se Mostraban en Build
+
+**Síntomas:**
+- Iconos funcionaban en desarrollo (`npm run dev`)
+- Iconos desaparecían en build de producción (`npm run build`)
+- Scripts UIKit se convertían a módulos ES6
+
+**Causa Raíz:**
+Astro transformaba automáticamente los scripts UIKit de CDN a módulos ES6, rompiendo la funcionalidad de iconos.
+
+**Solución Aplicada:**
+```html
+<!-- Antes (no funcionaba en build) -->
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.21.13/dist/js/uikit.min.js"></script>
+
+<!-- Después (funciona en build) -->
+<script is:inline src="https://cdn.jsdelivr.net/npm/uikit@3.21.13/dist/js/uikit.min.js"></script>
+```
+
+**Archivos Corregidos:**
+- `src/layouts/Layout.astro` - Scripts UIKit inline
+- `src/components/Header.astro` - Iconos navbar (`data-uk-icon="chevron-down"`)
+- `src/components/Footer.astro` - Iconos footer y enlaces corregidos  
+- `src/components/OffCanvas.astro` - Iconos menu móvil (`data-uk-icon="icon: whatsapp"`)
+- `src/components/Hero.astro` - Icono flecha down (`data-uk-icon="icon: arrow-down; ratio: 2"`)
+- `src/components/ServiceCard.astro` - Iconos arrow-right (`data-uk-icon="arrow-right"`)
+- `src/pages/services/[slug].astro` - Iconos check en listas (`data-uk-icon="check"`)
+
+**Resultado:**
+✅ Iconos funcionando correctamente en desarrollo y producción  
+✅ Sintaxis de iconos coincide exactamente con el sitio original  
+✅ UIKit carga como scripts regulares, no como módulos ES6
 
 ---
 
