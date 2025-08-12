@@ -1,6 +1,7 @@
 ---
 title: "Nosotros"
-description: "Somos un equipo de profesionales con una sólida trayectoria en Recursos Humanos, acumulando más de 20 años de experiencia en el sector, desempeñando posiciones de liderazgo tanto en empresas multinacionales de gran envergadura como en empresas PYMES."
+description: "Somos un equipo de profesionales con una sólida trayectoria en Recursos Humanos, acumulando <strong>más de 20 años de experiencia</strong> en el sector, desempeñando posiciones de liderazgo tanto en empresas multinacionales de gran envergadura como en empresas PYMES."
+homeDescription: "Somos BDM, consultora de recursos humanos compuesta por profesionales con más de 20 años de experiencia en la gestión estratégica de RR.HH."
 image: "/images/home-nosotros.jpg"
 order: 1
 featured: true

@@ -5,6 +5,7 @@ const servicesCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
+    homeDescription: z.string().optional(),
     image: z.string(),
     order: z.number(),
     featured: z.boolean().optional(),

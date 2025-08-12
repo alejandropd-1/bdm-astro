@@ -44,9 +44,7 @@ const {
         aria-label={`Leer más sobre ${title}`}
       >
         <h2 class="uk-card-title heading-3">{title}</h2>
-        <p class="uk-card-paragraph">
-          {description}
-        </p>
+        <p class="uk-card-paragraph" set:html={description}></p>
         <span class="uk-flex uk-flex-bottom" role="button" tabindex="0">
           Seguir leyendo sobre {title}
           <span data-uk-icon="arrow-right" aria-hidden="true"></span>

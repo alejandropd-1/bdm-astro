@@ -1,6 +1,7 @@
 ---
 title: "Capital Humano"
 description: "Implementamos un proceso de reclutamiento adaptado a las necesidades específicas de cada cliente, utilizando técnicas de búsqueda activa en redes sociales, ferias de empleo, plataformas digitales y nuestra propia base de datos."
+homeDescription: "Implementamos un proceso de reclutamiento adaptado a las necesidades específicas de cada cliente, utilizando técnicas de búsqueda activa en redes sociales, ferias de empleo, plataformas digitales y nuestra propia base de datos."
 image: "/images/home-capital-humano.jpg"
 order: 2
 featured: true

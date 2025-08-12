@@ -42,9 +42,7 @@ const getNavClass = (serviceName: string) => {
             <h1 class="text-center uk-text-bolder">{service.data.title}</h1>
           </div>
           <div class="uk-width-1-1@s" data-uk-scrollspy="cls: uk-animation-slide-left-medium; target: > *; delay: 150">
-            <p class="uk-text-lead text-center">
-              {service.data.description}
-            </p>
+            <p class="uk-text-lead text-center" set:html={service.data.description}></p>
           </div>
         </div>
         <!-- /TOP CONTAINER -->

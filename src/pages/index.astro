@@ -18,7 +18,7 @@ const featuredServices = allServices
 const services = featuredServices.map((service, index) => ({
   id: service.slug === 'administracion-personal' ? 'administracion-personal' : service.slug,
   title: service.data.title,
-  description: service.data.description,
+  description: service.data.homeDescription || service.data.description,
   image: service.data.image,
   link: `/services/${service.slug}/`,
   animationClass: index % 2 === 0 ? "uk-animation-slide-left-medium" : "uk-animation-slide-right-medium",

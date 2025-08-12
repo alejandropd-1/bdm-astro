@@ -1,6 +1,7 @@
 ---
 title: "Consultoría"
 description: "Nuestro objetivo es facilitar la comunicación entre la dirección y los empleados, minimizando conflictos y promoviendo un ambiente de colaboración."
+homeDescription: "Nuestra consultoría en recursos humanos y relaciones laborales está diseñada para ayudarte a optimizar tus procesos, mejorar el clima laboral y fomentar un ambiente de trabajo productivo y armonioso."
 image: "/images/home-consultoria.jpg"
 order: 3
 featured: true
