@@ -5,30 +5,30 @@ const menuItems = [
   { href: "/services/capital-humano/", text: "Capital Humano" },
   { href: "/services/consultoria/", text: "Consultoría" },
   { href: "/services/compensaciones/", text: "Compensaciones" },
-  { href: "/services/administracion-personal/", text: "Adm. de Personal" }
+  { href: "/services/administracion-personal/", text: "Adm. de Personal" },
 ];
 
 const contactLinks = [
   {
     href: "https://wa.me/541151147718?text=Hola,%20quisiera%20contactarme%20con%20ustedes%20!",
     icon: "whatsapp",
-    text: "Contáctanos por Whatsapp"
+    text: "Contáctanos por Whatsapp",
   },
   {
     href: "mailto:info@bdmconsultores.com.ar",
     icon: "mail",
-    text: "info@bdmconsultores.com.ar"
+    text: "info@bdmconsultores.com.ar",
   },
-  {
-    href: "https://instagram.com/bdm.consultores",
-    icon: "instagram",
-    text: "@bdm.consultores"
-  },
+  // {
+  //   href: "https://instagram.com/bdm.consultores",
+  //   icon: "instagram",
+  //   text: "@bdm.consultores"
+  // },
   {
     href: "https://www.linkedin.com/in/bdmconsultores",
     icon: "linkedin",
-    text: "bdmconsultores"
-  }
+    text: "bdmconsultores",
+  },
 ];
 ---
 
@@ -38,31 +38,36 @@ const contactLinks = [
       class="uk-offcanvas-close uk-close uk-icon"
       type="button"
       data-uk-close
-      aria-label="Cerrar menú"
-    ></button>
-    
+      aria-label="Cerrar menú"></button>
+
     <nav>
       <ul class="uk-nav uk-nav-default">
         <li class="uk-nav-header">Menu</li>
-        {menuItems.map((item) => (
-          <li><a href={item.href}>{item.text}</a></li>
-        ))}
-        
+        {
+          menuItems.map((item) => (
+            <li>
+              <a href={item.href}>{item.text}</a>
+            </li>
+          ))
+        }
+
         <li class="uk-nav-header">Contacto</li>
-        {contactLinks.map((contact) => (
-          <li>
-            <a href={contact.href} target="_blank" rel="noopener noreferrer">
-              <span
-                class="uk-margin-small-right uk-icon"
-                data-uk-icon={`icon: ${contact.icon}`}
-              ></span>
-              {contact.text}
-            </a>
-          </li>
-        ))}
+        {
+          contactLinks.map((contact) => (
+            <li>
+              <a href={contact.href} target="_blank" rel="noopener noreferrer">
+                <span
+                  class="uk-margin-small-right uk-icon"
+                  data-uk-icon={`icon: ${contact.icon}`}
+                />
+                {contact.text}
+              </a>
+            </li>
+          ))
+        }
       </ul>
     </nav>
-    
+
     <h3>BDM Consultores</h3>
     <p>Desarrollamos el talento que impulsa el éxito</p>
   </div>

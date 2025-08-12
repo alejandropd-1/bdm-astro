@@ -9,7 +9,15 @@ export interface Props {
   reverse?: boolean;
 }
 
-const { id, title, description, image, link, animationClass, reverse = false } = Astro.props;
+const {
+  id,
+  title,
+  description,
+  image,
+  link,
+  animationClass,
+  reverse = false,
+} = Astro.props;
 ---
 
 <div
@@ -19,14 +27,22 @@ const { id, title, description, image, link, animationClass, reverse = false } =
   data-uk-scrollspy={`target: > div; cls: ${animationClass}`}
 >
   <div
-    class={`uk-card-media-${reverse ? 'right' : 'left'} uk-cover-container border-radius-2 image-filter ${reverse ? 'uk-flex-last@s' : ''}`}
+    class={`uk-card-media-${reverse ? "right" : "left"} uk-cover-container border-radius-2 image-filter ${reverse ? "uk-flex-last@s" : ""}`}
   >
     <img src={image} alt={title} uk-cover />
     <canvas width="600" height="400"></canvas>
   </div>
-  <div data-uk-scrollspy-class={reverse ? 'uk-animation-slide-left-medium' : 'uk-animation-slide-right-medium'}>
+  <div
+    data-uk-scrollspy-class={reverse
+      ? "uk-animation-slide-left-medium"
+      : "uk-animation-slide-right-medium"}
+  >
     <div class="uk-card-body">
-      <a class="uk-link-toggle" href={link} aria-label={`Leer más sobre ${title}`}>
+      <a
+        class="uk-link-toggle"
+        href={link}
+        aria-label={`Leer más sobre ${title}`}
+      >
         <h2 class="uk-card-title heading-3">{title}</h2>
         <p class="uk-card-paragraph">
           {description}

@@ -55,6 +55,14 @@
       }
     }
   }
+  &-body {
+    span {
+      color: $link-color;
+      &:hover {
+        color: $link-color-hover;
+      }
+    }
+  }
 }
 
 .uk-card-title-profile {
