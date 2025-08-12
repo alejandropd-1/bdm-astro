@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bdmconsultores.com.ar/sitemap-index.xml

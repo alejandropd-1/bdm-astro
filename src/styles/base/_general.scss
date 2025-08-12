@@ -1,0 +1,21 @@
+@use "../abstracts/" as *;
+
+body {
+  font-family: $body-font-family;
+  font-weight: $body-font-weight;
+  font-size: $body-font-size;
+  color: $body-text-color;
+  background-color: $body-background-color;
+  line-height: $body-line-height;
+  background-image: url("/images/background-pattern.png");
+  background-size: 100%;
+  background-repeat: repeat;
+}
+
+a {
+  color: $link-color;
+}
+
+a:is(:hover, :focus) {
+  color: $link-color-hover;
+}

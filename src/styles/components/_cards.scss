@@ -1,0 +1,82 @@
+@use "../abstracts/" as *;
+
+.card {
+  display: grid;
+  gap: $card-flow-spacing;
+  padding: $card-padding;
+  background-color: $card-background-default;
+  font-family: $card-font-family;
+  color: $card-color-default;
+  line-height: $card-line-height;
+  box-shadow: $card-shadow;
+  border-radius: $card-border-radius;
+
+  &__heading {
+    @include heading($card-heading-font-size, $card-heading-color-default);
+  }
+  &--border {
+    // background: linear-gradient(white, white) padding-box,
+    //   linear-gradient(to right, #fbb03b, #c1272d) border-box;
+    background: linear-gradient(white, white) padding-box,
+      linear-gradient(0deg, rgb(255, 222, 170) 50%, rgb(255, 164, 167) 100%);
+    border: 1px solid transparent;
+  }
+  &--background {
+    &::before {
+      content: "";
+      height: 100%;
+      width: 100%;
+      display: inline-block;
+      background-image: url("/images/background-pattern.png");
+      background-size: 100%;
+      background-repeat: repeat;
+      opacity: 1;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+}
+
+.uk-card {
+  &-paragraph {
+    font-family: $font-family-accent;
+    font-size: $font-size-600;
+    font-weight: $font-weight-default;
+  }
+  &-title {
+    &--capHum {
+      font-family: $font-family-accent;
+      font-size: $font-size-500;
+      font-weight: $font-weight-semi-bold;
+      color: #e38900 !important;
+      @include mq(medium) {
+        font-size: $font-size-700;
+      }
+    }
+  }
+}
+
+.uk-card-title-profile {
+  font-family: $font-family-accent;
+  font-size: $font-size-500;
+  font-weight: $font-weight-semi-bold;
+  @include mq(medium) {
+    font-size: $font-size-750;
+  }
+}
+p {
+  &.profile-text {
+    font-family: $font-family-accent;
+    font-size: $font-size-400;
+    font-weight: $font-weight-default;
+  }
+}
+.profile-image {
+  width: 90px;
+  height: 90px;
+  @include mq(medium) {
+    width: 170px;
+    height: 170px;
+  }
+}

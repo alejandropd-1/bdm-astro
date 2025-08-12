@@ -1,0 +1,41 @@
+---
+export interface Props {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  link: string;
+  animationClass: string;
+  reverse?: boolean;
+}
+
+const { id, title, description, image, link, animationClass, reverse = false } = Astro.props;
+---
+
+<div
+  id={id}
+  class="uk-card uk-grid-collapse uk-child-width-1-2@s uk-margin-large uk-flex-middle"
+  uk-grid
+  data-uk-scrollspy={`target: > div; cls: ${animationClass}`}
+>
+  <div
+    class={`uk-card-media-${reverse ? 'right' : 'left'} uk-cover-container border-radius-2 image-filter ${reverse ? 'uk-flex-last@s' : ''}`}
+  >
+    <img src={image} alt={title} uk-cover />
+    <canvas width="600" height="400"></canvas>
+  </div>
+  <div data-uk-scrollspy-class={reverse ? 'uk-animation-slide-left-medium' : 'uk-animation-slide-right-medium'}>
+    <div class="uk-card-body">
+      <a class="uk-link-toggle" href={link} aria-label={`Leer más sobre ${title}`}>
+        <h2 class="uk-card-title heading-3">{title}</h2>
+        <p class="uk-card-paragraph">
+          {description}
+        </p>
+        <span class="uk-flex uk-flex-bottom" role="button" tabindex="0">
+          Seguir leyendo sobre {title}
+          <span data-uk-icon="arrow-right" aria-hidden="true"></span>
+        </span>
+      </a>
+    </div>
+  </div>
+</div>

@@ -9,6 +9,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.12.9"
+    "@astrojs/sitemap": "^3.4.2",
+    "astro": "^5.12.9",
+    "autoprefixer": "^10.4.21",
+    "cssnano": "^7.1.0",
+    "postcss-preset-env": "^10.2.4",
+    "sass": "^1.90.0"
   }
 }

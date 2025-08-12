@@ -1,0 +1,20 @@
+@use "../abstracts/" as *;
+
+h2 {
+  &.hero-title {
+    font-family: $site-header-banner-font-text;
+    font-size: 2.5rem;
+    font-weight: $site-header-banner-font-text-weight;
+    text-align: center;
+    @include mq(medium) {
+      font-size: 4rem;
+      text-align: left;
+    }
+  }
+}
+
+.subtitle-text {
+  font-family: $font-family-accent;
+  font-size: 1.2em;
+  font-weight: 400;
+}

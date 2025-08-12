@@ -1,0 +1,95 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <title>{title}</title>
+    <meta name="description" content={description || "BDM Consultores - Desarrollamos el talento que impulsa el éxito"} />
+    <meta
+      name="keywords"
+      content="BDM Consultores, Recruiter, RRHH, Capital Humano, Consultoría, Compensaciones, Administración de Personal"
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content={description || "Desarrollamos el talento que impulsa el éxito"} />
+    <meta property="og:image" content="https://bdmconsultores.com.ar/images/bdm-logo-social.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description || "Desarrollamos el talento que impulsa el éxito"} />
+    <meta name="twitter:image" content="https://bdmconsultores.com.ar/images/bdm-logo-social.png" />
+    <meta name="twitter:site" content="@bdmconsultores" />
+    <meta name="twitter:creator" content="@bdmconsultores" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "BDM Consultores",
+        "description": "Desarrollamos el talento que impulsa el éxito",
+        "url": "https://bdmconsultores.com.ar",
+        "logo": "https://bdmconsultores.com.ar/images/bdm-logo.svg",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+54-11-5114-7718",
+          "contactType": "customer service",
+          "availableLanguage": "Spanish"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "AR"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/bdmconsultores",
+          "https://instagram.com/bdm.consultores"
+        ]
+      }
+    </script>
+
+    <!-- UIkit CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/uikit@3.21.13/dist/css/uikit.min.css"
+    />
+
+    <!-- Main SCSS -->
+    <style lang="scss" is:global>
+      @use "../styles/main.scss";
+    </style>
+  </head>
+  
+  <body>
+    <slot />
+    
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.21.13/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.21.13/dist/js/uikit-icons.min.js"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DQWHJLZLBF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-DQWHJLZLBF");
+    </script>
+  </body>
+</html>

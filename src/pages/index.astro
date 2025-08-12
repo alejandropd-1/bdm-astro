@@ -1,16 +1,64 @@
 ---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import ClientLogos from '../components/ClientLogos.astro';
+import Footer from '../components/Footer.astro';
+import OffCanvas from '../components/OffCanvas.astro';
 
+// Get services from markdown files
+const allServices = await getCollection('services');
+const featuredServices = allServices
+  .filter(service => service.data.featured)
+  .sort((a, b) => a.data.order - b.data.order);
+
+// Map to the format expected by ServiceCard component
+const services = featuredServices.map((service, index) => ({
+  id: service.slug === 'administracion-personal' ? 'administracion-personal' : service.slug,
+  title: service.data.title,
+  description: service.data.description,
+  image: service.data.image,
+  link: `/services/${service.slug}/`,
+  animationClass: index % 2 === 0 ? "uk-animation-slide-left-medium" : "uk-animation-slide-right-medium",
+  reverse: index % 2 !== 0
+}));
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout 
+  title="BDM Consultores" 
+  description="Desarrollamos el talento que impulsa el éxito. Consultora de recursos humanos especializada en reclutamiento, consultoría, compensaciones y administración de personal."
+>
+  <main>
+    <!-- TOP -->
+    <div class="top-wrap uk-position-relative uk-light uk-background-secondary">
+      <!-- NAV -->
+      <Header />
+      <!-- /NAV -->
+
+      <Hero />
+    </div>
+    <!-- /TOP -->
+
+    <!-- CATEGORIES CONTAINER -->
+    <div id="content" class="uk-container uk-section">
+      {services.map((service) => (
+        <ServiceCard {...service} />
+      ))}
+    </div>
+    <!-- /CATEGORIES CONTAINER -->
+
+    <!-- LOGOS -->
+    <ClientLogos />
+    <!-- /LOGOS -->
+
+    <!-- FOOTER -->
+    <Footer />
+    <!-- /FOOTER -->
+
+    <!-- OFFCANVAS -->
+    <OffCanvas />
+    <!-- /OFFCANVAS -->
+  </main>
+</Layout>

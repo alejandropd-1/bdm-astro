@@ -1,0 +1,28 @@
+@use "../abstracts/" as *;
+
+.site-footer {
+  background-color: $footer-background-color;
+  color: $footer-text-color;
+
+  a {
+    color: $footer-link-color;
+    text-decoration: $footer-link-text-decoration;
+    font-family: $footer-link-font-family;
+    letter-spacing: $letter-spacing-loose;
+
+    &:is(:hover, :focus) {
+      color: $footer-link-color-hover;
+    }
+  }
+}
+
+.footer {
+  background-image: linear-gradient(
+      90deg,
+      transparent,
+      transparent 100%,
+      #fff 50%,
+      #fff 100%
+    ),
+    linear-gradient(90deg, #ffcecd, #ffe7ad);
+}

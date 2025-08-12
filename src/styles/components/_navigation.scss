@@ -1,0 +1,90 @@
+@use "../abstracts" as *;
+
+.nav {
+  --flex-column-gap: #{$navigation-gap};
+  list-style: none;
+  font-family: $navigation-font-family;
+  font-weight: $navigation-font-weight;
+
+  a {
+    color: $navigation-color;
+    text-decoration: $navigation-link-text-decoration;
+
+    &:is(:hover, :focus) {
+      color: $navigation-color-hover;
+    }
+  }
+}
+
+.uk-background-complementary {
+  // overflow: hidden;
+
+  backdrop-filter: saturate(200%) blur(5px);
+  background-color: rgba(0, 0, 0, 0.3);
+  &::before {
+    content: "";
+    height: 100%;
+    width: 100%;
+    display: inline-block;
+    background-image: linear-gradient(
+        90deg,
+        transparent,
+        transparent 100%,
+        #fff 50%,
+        #fff 100%
+      ),
+      linear-gradient(90deg, #a06462, #907a47);
+    opacity: 0.8;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  // &::before {
+  //   content: "";
+  //   height: 100%;
+  //   width: 100%;
+  //   display: inline-block;
+  //   background-image: linear-gradient(
+  //       90deg,
+  //       transparent,
+  //       transparent 100%,
+  //       #fff 50%,
+  //       #fff 100%
+  //     ),
+  //     linear-gradient(90deg, #ffcecd, #ffe7ad);
+  //   opacity: 0.5;
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   filter: blur(10px);
+  // }
+}
+
+.uk-background-complementary-2 {
+  // overflow: hidden;
+
+  backdrop-filter: saturate(200%) blur(5px);
+  background-color: rgba(0, 0, 0, 0.3);
+  &::before {
+    content: "";
+    height: 100%;
+    width: 100%;
+    display: inline-block;
+    background-image: linear-gradient(
+        90deg,
+        transparent,
+        transparent 100%,
+        #fff 50%,
+        #fff 100%
+      ),
+      linear-gradient(90deg, #e8bf66, #dcbc72);
+    opacity: 0.8;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+.uk-offcanvas-bar {
+  backdrop-filter: saturate(200%) blur(5px);
+  background-color: rgba(69, 69, 60, 0.75);
+}

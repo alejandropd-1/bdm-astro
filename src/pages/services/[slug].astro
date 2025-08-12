@@ -1,0 +1,113 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import OffCanvas from '../../components/OffCanvas.astro';
+
+export async function getStaticPaths() {
+  const services = await getCollection('services');
+  return services.map((service) => ({
+    params: { slug: service.slug },
+    props: { service },
+  }));
+}
+
+const { service } = Astro.props;
+const { Content } = await service.render();
+---
+
+<Layout 
+  title={service.data.title + " - BDM Consultores"}
+  description={service.data.description}
+>
+  <main>
+    <!-- TOP -->
+    <div class="top-wrap uk-position-relative uk-light uk-background-secondary background-banner">
+      <!-- NAV -->
+      <Header />
+      <!-- /NAV -->
+
+      <div class="uk-cover-container uk-light uk-flex uk-flex-middle" style="min-height: 400px;">
+        <div class="uk-container uk-flex-auto uk-position-relative uk-margin-medium-top">
+          <div class="uk-width-1-1 uk-text-center">
+            <h1 class="hero-title">{service.data.title}</h1>
+            <p class="subtitle-text uk-margin-top">{service.data.description}</p>
+          </div>
+        </div>
+        
+        <!-- Service Image -->
+        <img
+          src={service.data.image}
+          alt={service.data.title}
+          data-uk-cover
+          style="opacity: 0.3;"
+        />
+      </div>
+    </div>
+    <!-- /TOP -->
+
+    <!-- CONTENT -->
+    <div class="uk-section">
+      <div class="uk-container">
+        <div class="uk-grid-divider uk-child-width-expand@s" uk-grid>
+          <div class="uk-width-3-4@m">
+            <article class="uk-article">
+              <div class="flow">
+                <Content />
+              </div>
+            </article>
+          </div>
+          
+          <div class="uk-width-1-4@m">
+            <aside class="uk-margin-large-top@s">
+              <div class="uk-card uk-card-default uk-card-body">
+                <h3 class="uk-card-title">¿Necesitas ayuda?</h3>
+                <p>Contáctanos para obtener más información sobre nuestros servicios.</p>
+                <a 
+                  href="https://wa.me/541151147718?text=Hola,%20quisiera%20información%20sobre%20" + service.data.title
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="uk-button uk-button-primary uk-width-1-1 uk-margin-top"
+                >
+                  <span uk-icon="whatsapp" class="uk-margin-small-right"></span>
+                  Consultar por WhatsApp
+                </a>
+                
+                <a 
+                  href="mailto:info@bdmconsultores.com.ar?subject=Consulta sobre " + service.data.title
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-top"
+                >
+                  <span uk-icon="mail" class="uk-margin-small-right"></span>
+                  Enviar Email
+                </a>
+              </div>
+
+              <div class="uk-card uk-card-primary uk-card-body uk-margin-top">
+                <h4 class="uk-card-title uk-light">Otros Servicios</h4>
+                <ul class="uk-nav uk-nav-default">
+                  <li><a href="/services/nosotros">Nosotros</a></li>
+                  <li><a href="/services/capital-humano">Capital Humano</a></li>
+                  <li><a href="/services/consultoria">Consultoría</a></li>
+                  <li><a href="/services/compensaciones">Compensaciones</a></li>
+                  <li><a href="/services/administracion-personal">Administración de Personal</a></li>
+                </ul>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /CONTENT -->
+
+    <!-- FOOTER -->
+    <Footer />
+    <!-- /FOOTER -->
+
+    <!-- OFFCANVAS -->
+    <OffCanvas />
+    <!-- /OFFCANVAS -->
+  </main>
+</Layout>
