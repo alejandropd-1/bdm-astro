@@ -5,6 +5,12 @@
 
 ### 📝 Historial de Modificaciones
 
+**12 de agosto de 2025 - 19:44**
+- ✅ **Sistema de contenido dinámico**: Agregado campo `homeDescription` para textos diferentes entre homepage y páginas de servicio
+- ✅ **Renderizado HTML**: Implementado `set:html` para formatear texto con HTML (negritas, cursivas, etc.)
+- ✅ **Contenido actualizado**: "más de 20 años de experiencia" ahora aparece en negrita en páginas de servicio
+- ✅ **Schema actualizado**: Soporte para `homeDescription` opcional en markdown
+
 **12 de agosto de 2025 - 13:47**
 - ✅ **Corrección crítica de iconos UIKit**: Scripts UIKit ahora cargan como inline para evitar transformación a módulos ES6
 - ✅ **Revertir sintaxis de iconos**: Vuelta a sintaxis original mixta (`data-uk-icon` y `uk-icon="icon: name"`) que funciona correctamente
