@@ -8,6 +8,22 @@ import ClientLogos from '../components/ClientLogos.astro';
 import Footer from '../components/Footer.astro';
 import OffCanvas from '../components/OffCanvas.astro';
 
+// Import service images for optimization
+import homeAdmPersonal from '../assets/images/home-adm-personal.jpg';
+import homeNosotros from '../assets/images/home-nosotros.jpg';
+import homeCompensaciones from '../assets/images/home-compensaciones.jpg';
+import homeConsultoria from '../assets/images/home-consultoria.jpg';
+import homeCapitalHumano from '../assets/images/home-capital-humano.jpg';
+
+// Map image paths to imported assets
+const imageMap = {
+  '/images/home-adm-personal.jpg': homeAdmPersonal,
+  '/images/home-nosotros.jpg': homeNosotros,
+  '/images/home-compensaciones.jpg': homeCompensaciones,
+  '/images/home-consultoria.jpg': homeConsultoria,
+  '/images/home-capital-humano.jpg': homeCapitalHumano,
+};
+
 // Get services from markdown files
 const allServices = await getCollection('services');
 const featuredServices = allServices
@@ -19,7 +35,7 @@ const services = featuredServices.map((service, index) => ({
   id: service.slug === 'administracion-personal' ? 'administracion-personal' : service.slug,
   title: service.data.title,
   description: service.data.homeDescription || service.data.description,
-  image: service.data.image,
+  image: imageMap[service.data.image] || service.data.image,
   link: `/services/${service.slug}/`,
   animationClass: index % 2 === 0 ? "uk-animation-slide-left-medium" : "uk-animation-slide-right-medium",
   reverse: index % 2 !== 0

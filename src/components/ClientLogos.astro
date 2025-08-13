@@ -27,10 +27,9 @@ const logos = [
       {logos.map((logo) => (
         <div class={logo.narrow ? 'logo-narrow' : ''}>
           <img
-            src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-            data-src={logo.src}
-            data-uk-img
+            src={logo.src}
             alt={logo.alt}
+            data-uk-img
           />
         </div>
       ))}

@@ -17,7 +17,8 @@
   &--border {
     // background: linear-gradient(white, white) padding-box,
     //   linear-gradient(to right, #fbb03b, #c1272d) border-box;
-    background: linear-gradient(white, white) padding-box,
+    background:
+      linear-gradient(white, white) padding-box,
       linear-gradient(0deg, rgb(255, 222, 170) 50%, rgb(255, 164, 167) 100%);
     border: 1px solid transparent;
   }
@@ -53,6 +54,10 @@
       @include mq(medium) {
         font-size: $font-size-700;
       }
+      &-subtitle {
+        font-size: $font-size-500;
+        color: #e38900;
+      }
     }
   }
   &-body {
@@ -62,6 +67,9 @@
         color: $link-color-hover;
       }
     }
+  }
+  [data-uk-icon="check"] {
+    color: #e38900;
   }
 }
 

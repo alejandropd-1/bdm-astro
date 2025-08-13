@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import heroBanner from '../assets/images/hero-banner-2.png';
 // Hero section component
 ---
 
@@ -14,26 +16,21 @@
       class="uk-width-2-3@s"
       data-uk-scrollspy="cls: uk-animation-slide-right-medium; target: > *; delay: 150"
     >
-      <h1 class="hero-title">
+      <h2 class="hero-title">
         Desarrollamos el talento <br />
         <span class="uk-text-bolder">que impulsa el éxito</span>
-      </h1>
+      </h2>
     </div>
   </div>
   <!-- /TOP CONTAINER -->
-  
+
   <!-- TOP IMAGE -->
-  <img
-    src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-    data-srcset="/images/hero-banner-2.png 640w,
-      /images/hero-banner-2.png 960w,
-      /images/hero-banner-2.png 1200w,
-      /images/hero-banner-2.png 2000w"
-    data-sizes="100vw"
-    data-src="/images/hero-banner-2.png"
+  <Image
+    src={heroBanner}
     alt="BDM Consultores - Desarrollamos el talento que impulsa el éxito"
+    format="webp"
+    quality={80}
     data-uk-cover
-    data-uk-img
     data-uk-parallax="opacity: 1,0.1; easing:0"
   />
   <!-- /TOP IMAGE -->

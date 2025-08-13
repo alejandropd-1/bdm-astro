@@ -7,20 +7,55 @@ order: 5
 featured: true
 ---
 
-Nos encargamos de gestionar todos los aspectos administrativos del personal, asegurando que los procesos internos sean fluidos y estén alineados con las normativas laborales. Nuestro enfoque está en facilitar una administración ordenada y eficiente que permita a las empresas concentrarse en su crecimiento y objetivos estratégicos.
+<div class="uk-grid-width-expand" uk-grid>
+  <div class="uk-width-1-1@s uk-width-1-3@m" data-uk-scrollspy="cls: uk-animation-fade; target: > *; delay: 150">
+    <div class="card--background uk-card uk-card-small uk-card-default border-radius-2 card--border uk-card-body">
+      <h3 class="uk-card-title--capHum">Gestión integral de Administración de personal</h3>
+      <p class="profile-text">
+        <ul class="uk-list" role="list">
+          <li class="uk-flex uk-flex-middle">
+            <span data-uk-icon="check"> </span><div class="uk-margin-small-left" role="listitem">Altas-Bajas-Modificaciones</div>
+          </li>
+          <li class="uk-flex uk-flex-middle">
+            <span data-uk-icon="check"> </span><div class="uk-margin-small-left" role="listitem">Documentación legal en legajos</div>
+          </li>
+        </ul>
+      </p>
+    </div>
+  </div>
 
-## Gestión integral de Administración de personal
+  <div class="uk-width-1-1@s uk-width-1-3@m" data-uk-scrollspy="cls: uk-animation-fade; target: > *; delay: 350">
+    <div class="card--background uk-card uk-card-small uk-card-default border-radius-2 card--border uk-card-body">
+      <h3 class="uk-card-title--capHum">Diseño e implementación de reportes de Recursos Humanos</h3>
+      <p class="profile-text">
+        <ul class="uk-list" role="list">
+          <li class="uk-flex uk-flex-middle">
+            <span data-uk-icon="check"> </span><div class="uk-margin-small-left" role="listitem">Confección del tablero de control (KPI)</div>
+          </li>
+        </ul>
+      </p>
+    </div>
+  </div>
 
-- Altas-Bajas-Modificaciones
-- Documentación legal en legajos
-
-## Diseño e implementación de reportes de Recursos Humanos
-
-- Confección del tablero de control (KPI)
-
-## Trámites
-
-- AFIP
-- Obra social
-- ART
-- Sindicatos
+  <div class="uk-width-1-1@s uk-width-1-3@m" data-uk-scrollspy="cls: uk-animation-fade; target: > *; delay: 550">
+    <div class="card--background uk-card uk-card-small uk-card-default border-radius-2 card--border uk-card-body">
+      <h3 class="uk-card-title--capHum">Trámites</h3>
+      <p class="profile-text">
+        <ul class="uk-list" role="list">
+          <li class="uk-flex uk-flex-middle">
+            <span data-uk-icon="check"> </span><div class="uk-margin-small-left" role="listitem">AFIP</div>
+          </li>
+          <li class="uk-flex uk-flex-middle">
+            <span data-uk-icon="check"> </span><div class="uk-margin-small-left" role="listitem">Obra social</div>
+          </li>
+          <li class="uk-flex uk-flex-middle">
+            <span data-uk-icon="check"> </span><div class="uk-margin-small-left" role="listitem">ART</div>
+          </li>
+          <li class="uk-flex uk-flex-middle">
+            <span data-uk-icon="check"> </span><div class="uk-margin-small-left" role="listitem">Sindicatos</div>
+          </li>
+        </ul>
+      </p>
+    </div>
+  </div>
+</div>
