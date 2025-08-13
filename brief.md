@@ -5,6 +5,13 @@
 
 ### 📝 Historial de Modificaciones
 
+**13 de agosto de 2025 - 13:38**
+- ✅ **Optimización de imágenes implementada**: Configurado Sharp para optimización automática con WebP
+- ✅ **Prettier + ESLint configurado**: Config de Wes Bos con formateo automático al guardar
+- ✅ **Build limpio conseguido**: Solo app.css + imágenes optimizadas (eliminado JS innecesario)
+- ✅ **Compresión significativa**: Hero banner 1283kB→37kB (97% reducción), todas las fotos de servicios optimizadas
+- ✅ **Estructura híbrida perfecta**: Imágenes pesadas en assets/ (optimizadas), logos pequeños en public/ (directos)
+
 **13 de agosto de 2025 - 09:50**
 - ✅ **Corrección de deprecation warning SASS**: Actualizado `map-get()` por `map.get()` en `_mixins.scss` para compatibilidad con Dart Sass 3.0.0
 

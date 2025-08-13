@@ -1,0 +1,46 @@
+---
+// Componente para optimizar Web Vitals
+---
+
+<!-- Optimización para CLS (Cumulative Layout Shift) -->
+<style>
+  /* Reservar espacio para evitar layout shift */
+  .hero-container {
+    min-height: 100vh;
+    contain: layout;
+  }
+  
+  .service-card img {
+    aspect-ratio: 600/400;
+    object-fit: cover;
+  }
+  
+  .logo-container img {
+    aspect-ratio: 120/60;
+    object-fit: contain;
+  }
+  
+  /* Optimización de fuentes */
+  @font-face {
+    font-family: 'UIKit-fallback';
+    font-display: swap;
+  }
+</style>
+
+<!-- Script para Web Vitals monitoring -->
+<script>
+  // Lazy load UIKit icons para mejorar FID
+  if ('IntersectionObserver' in window) {
+    const iconObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('uk-icon-loaded');
+        }
+      });
+    });
+    
+    document.querySelectorAll('[data-uk-icon]').forEach(icon => {
+      iconObserver.observe(icon);
+    });
+  }
+</script>

@@ -3,6 +3,7 @@ import sitemap from '@astrojs/sitemap';
 import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
 import postcssPresetEnv from 'postcss-preset-env';
+import gzipPlugin from 'rollup-plugin-gzip';
 
 // ============================================
 // PANEL DE CONTROL DE LA COMPILACIÓN (BUILD)
@@ -59,6 +60,8 @@ export default defineConfig({
         build: {
             // Le decimos a Vite si debe minificar o no, según tu elección en OPCIONES_BUILD.
             minify: OPCIONES_BUILD.minificarCSS,
+            // Pre-compresión gzip
+            reportCompressedSize: true,
             rollupOptions: {
                 output: {
                     // CSS va a assets/app.css
@@ -81,6 +84,13 @@ export default defineConfig({
                     // manualChunks: undefined, // Evita chunks innecesarios
                 },
             },
+            // Plugins para compresión
+            plugins: [
+                gzipPlugin({
+                    filter: /\.(js|css|html|svg)$/,
+                    threshold: 1024, // Solo archivos >1KB
+                })
+            ],
         },
         css: {
             // Aquí le pasamos a Vite la lista de herramientas para CSS que preparamos antes.
